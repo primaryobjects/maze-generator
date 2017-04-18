@@ -28,7 +28,7 @@ export default class mazeControl extends Component {
     var elements = [];
     
     // Top border.
-    for (var x=0; x<=MazeManager.grid[0].length * 2; x++) {
+    for (var i=0; i<=MazeManager.grid[0].length * 2; i++) {
       elements.push(<div className='cell closed'></div>);
     }
     

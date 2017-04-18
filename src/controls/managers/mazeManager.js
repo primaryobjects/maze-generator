@@ -30,6 +30,7 @@ export var MazeManager = {
      case MazeManager.DIRECTION.RIGHT: result = MazeManager.DIRECTION.LEFT; break;
      case MazeManager.DIRECTION.BOTTOM: result = MazeManager.DIRECTION.TOP; break;
      case MazeManager.DIRECTION.LEFT: result = MazeManager.DIRECTION.RIGHT; break;
+     default: result = MazeManager.DIRECTION.RIGHT; break;
     };
     
     return result;
@@ -73,7 +74,7 @@ export var MazeManager = {
     var result = '';
 
     // Top border.
-    for (var x=0; x<MazeManager.grid[0].length * 2; x++) {
+    for (var i=0; i<MazeManager.grid[0].length * 2; i++) {
       result += '_';
     }
 
