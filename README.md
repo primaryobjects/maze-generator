@@ -1,7 +1,7 @@
 Maze Generator
 ==============
 
-A simple maze generator, built with React.
+A simple maze generator, built with React. View the [demo](http://primaryobjects.github.io/maze-generator/) or edit [online](https://plnkr.co/edit/kz6L9fMkJkD9VxyDHsPs?p=preview).
 
 ```
 _____________________
