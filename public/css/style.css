@@ -26,3 +26,11 @@
   font-family: monospace;
   white-space: pre;
 }
+
+.author {
+  font-size: 16px;
+}
+
+.author-year {
+  font-size: 13px;
+}
