@@ -1,0 +1,28 @@
+.maze {
+  margin: 10px 0 10px 0;
+}
+
+.maze .cell {
+  float: left;
+  width: 10px;
+  height: 10px;
+}
+
+.maze .cell.closed {
+  background-color: #000;
+}
+
+.maze .cell.open {
+  background-color: #fff;
+}
+
+.clear {
+  clear: both;
+}
+
+.pre {
+  display: block;
+  unicode-bidi: embed;
+  font-family: monospace;
+  white-space: pre;
+}
