@@ -1,4 +1,4 @@
-export var MazeManager = {
+var MazeManager = {
   grid: null,
   
   DIRECTION: {

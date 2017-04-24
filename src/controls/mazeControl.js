@@ -1,19 +1,31 @@
-import React, { Component } from 'react';
-import { MazeManager } from './managers/mazeManager.js';
-
-export default class mazeControl extends Component {
+class MazeControl extends React.Component {
   constructor(props) {
     super(props);
 
-    MazeManager.initialize(this.props.width, this.props.height);
+    MazeManager.initialize(props.width, props.height);
     
     this.state = {
-      grid: this.props.type && this.props.type.toLowerCase() === 'ascii' ? MazeManager.toString() : this.gridElements(),
-      width: this.props.width,
-      height: this.props.height
+      grid: props.type && this.props.type.toLowerCase() === 'ascii' ? MazeManager.toString() : this.gridElements(),
+      width: props.width,
+      height: props.height,
+      context: props.context,
+      log: ''
     };
     
+    // Listen for log events from the context.
+    this.state.context.listen(this, this.onLog);
+
     this.redraw = this.redraw.bind(this);
+    this.onClick = this.onClick.bind(this);
+    this.onLog = this.onLog.bind(this);
+  }
+
+  onClick(e) {
+    this.state.context.add('Hello!');
+  }
+
+  onLog(component, log) {
+    component.setState({ log: log });
   }
 
   ascii() {
@@ -100,7 +112,10 @@ export default class mazeControl extends Component {
   render() {
     return (
       <div className='maze'>
-        <div className={ (this.props.type && this.props.type.toLowerCase() === 'ascii' ? 'pre' : '') }>
+        <div id='log2' className='well'>
+          { this.state.log }
+        </div>
+        <div className={ (this.props.type && this.props.type.toLowerCase() === 'ascii' ? 'pre' : '') } onClick={this.onClick}>
           { this.state.grid }
         </div>
       </div>
